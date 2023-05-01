@@ -1,1 +1,55 @@
-zdqabcde的网站
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name='viewport' content="width=device-width,user-scalable=no">
+		<title></title>
+		
+		<style>
+			#box{
+				width: 200px;
+				height: 200px;
+				background: green;
+				color:#fff;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script>
+			/* 
+				devicemotion 重力加速度事件
+				accelerationIncludingGravity	重力加速度对象
+					它身上有三个轴
+						x:手机的宽
+						y：手机的长
+						y：手机的高
+				注意：这个事件只能放在window身上
+			 */
+			
+			
+			//相当于mousedown
+			'use strict'
+			var box=document.getElementById('box');
+			if(window.DeviceMotionEvent){
+				window.addEventListener('devicemotion',function(ev){
+					var motion=ev.accelerationIncludingGravity;
+					
+					box.innerHTML = `x:${motion.x}</br>y:${motion.y}</br>z:${motion.z}`;
+					alert(`x:${motion.x}`);
+					
+					},true);
+			}else{
+				 alert('您的浏览器不支持摇一摇功能.');
+			}
+			console.log(window.DeviceMotionEvent)
+				
+			window.addEventListener("devicemotion", (e) => {
+			  console.log(e)
+			});
+		
+			
+		</script>
+	</body>
+</html>
