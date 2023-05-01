@@ -39,7 +39,7 @@
 					var motion=ev.accelerationIncludingGravity;
 					var x=parseFloat(getComputedStyle(box).left);
 					 box.style.left=x+motion.x+'px';
-					box.innerHTML = `x:${motion.x}</br>y:${motion.y}</br>z:${motion.z}`;
+					box.innerHTML = x+motion.x;
 					
 					},true);
 			}else{
