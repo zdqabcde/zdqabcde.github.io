@@ -11,6 +11,8 @@
 				height: 200px;
 				background: green;
 				color:#fff;
+				position: absolute;
+				left:50px;
 			}
 			
 		</style>
@@ -35,18 +37,16 @@
 			if(window.DeviceMotionEvent){
 				window.addEventListener('devicemotion',function(ev){
 					var motion=ev.accelerationIncludingGravity;
-					
-					box.innerHTML = `x:${motion.x.toFixed(1)}</br>y:${motion.y.toFixed(1)}</br>z:${motion.z.toFixed(1)}`;
+					var x=parseInt(getComputedStyle(box).left);
+					 box.style.left=x+motion+px;
+					box.innerHTML = `x:${motion.x}</br>y:${motion.y}</br>z:${motion.z}`;
+					alert(`x:${motion.x}`);
 					
 					},true);
 			}else{
 				 alert('您的浏览器不支持摇一摇功能.');
 			}
-			console.log(window.DeviceMotionEvent)
-				
-			window.addEventListener("devicemotion", (e) => {
-			  console.log(e)
-			});
+			
 		
 			
 		</script>
