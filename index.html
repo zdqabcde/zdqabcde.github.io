@@ -38,9 +38,8 @@
 				window.addEventListener('devicemotion',function(ev){
 					var motion=ev.accelerationIncludingGravity;
 					var x=parseInt(getComputedStyle(box).left);
-					 box.style.left=x+motion+px;
+					 box.style.left=x+motion+'px';
 					box.innerHTML = `x:${motion.x}</br>y:${motion.y}</br>z:${motion.z}`;
-					alert(`x:${motion.x}`);
 					
 					},true);
 			}else{
