@@ -36,7 +36,7 @@
 				window.addEventListener('devicemotion',function(ev){
 					var motion=ev.accelerationIncludingGravity;
 					
-					box.innerHTML = `x:${motion.x}</br>y:${motion.y}</br>z:${motion.z}`;
+					box.innerHTML = `x:${motion.x.toFixed(1)}</br>y:${motion.y.toFixed(1)}</br>z:${motion.z.toFixed(1)}`;
 					
 					},true);
 			}else{
