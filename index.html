@@ -21,12 +21,11 @@
 		<div id="box"></div>
 		<script>
 			/* 
-				devicemotion 重力加速度事件
-				accelerationIncludingGravity	重力加速度对象
-					它身上有三个轴
-						x:手机的宽
-						y：手机的长
-						y：手机的高
+				deviceorientation 手机倾斜事件
+					ev.beta		  x轴的倾斜
+					ev.gamma	  Y轴的倾斜
+					ev.alpha	  z轴的倾斜
+					
 				注意：这个事件只能放在window身上
 			 */
 			
@@ -35,11 +34,11 @@
 			'use strict'
 			var box=document.getElementById('box');
 			if(window.DeviceMotionEvent){
-				window.addEventListener('devicemotion',function(ev){
+				window.addEventListener('deviceorientation',function(ev){
 					var motion=ev.accelerationIncludingGravity;
 					var x=parseFloat(getComputedStyle(box).left);
-					 box.style.left=x+motion.x+'px';
-					box.innerHTML = x+motion.x;
+					
+					 box.innerHTML = `x轴倾斜:${ev.beta}</br>y轴倾斜:${ev.gamma}</br>z轴倾斜:${ev.alpha}`;
 					
 					},true);
 			}else{
