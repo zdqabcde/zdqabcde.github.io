@@ -38,7 +38,7 @@
 					var motion=ev.accelerationIncludingGravity;
 					var x=parseFloat(getComputedStyle(box).left);
 					
-					 box.innerHTML = `x轴倾斜:${ev.beta}</br>y轴倾斜:${ev.gamma}</br>z轴倾斜:${ev.alpha}`;
+					 box.innerHTML = `x轴倾斜:${ev.beta.toFixed(1)}</br>y轴倾斜:${ev.gamma.toFixed(1)}</br>z轴倾斜:${ev.alpha.toFixed(1)}`;
 					
 					},true);
 			}else{
