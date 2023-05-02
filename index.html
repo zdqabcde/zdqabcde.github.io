@@ -29,21 +29,29 @@
 				注意：这个事件只能放在window身上
 			 */
 			
-			
-			//相当于mousedown
 			'use strict'
-			var box=document.getElementById('box');
-			if(window.DeviceMotionEvent){
-				window.addEventListener('deviceorientation',function(ev){
-					var motion=ev.accelerationIncludingGravity;
-					var x=parseFloat(getComputedStyle(box).left);
+			var	lastRange =0;	//上一次摇晃的幅度
+			var isShake = false;	//决定用户有没有大幅度摇晃
+			window.addEventListener('devicemotion',function(ev){
+				var motion = ev.accelerationIncludingGravity;
+				var x=Math.abs(motion.x);
+				var y=Math.abs(motion.y);
+				var z=Math.abs(motion.z);
+				
+				var range=x+y+z;	//当前摇晃的幅度
+				
+				if(ragne-lastRange>100){
+					//这个条件成立，说明用户已经在大幅度摇晃
+					isShake=true;
 					
-					 box.innerHTML = `x轴倾斜:${parseFloat(ev.beta).toFixed(1)}</br>y轴倾斜:${parseFloat(ev.gamma).toFixed(1)}</br>z轴倾斜:${parseFloat(ev.alpha).toFixed(1)}`;
-					
-					},true);
-			}else{
-				 alert('您的浏览器不支持摇一摇功能.');
-			}
+				}
+				
+				if(isShake && range<50){
+					//条件成立。说明用户摇晃的幅度很小了就停了
+					alert('摇一摇了');
+					isShake=false;
+				}
+			});
 			
 		
 			
