@@ -40,13 +40,13 @@
 				
 				var range=x+y+z;	//当前摇晃的幅度
 				box.innerHTML = `range:${range}<br>lastRange:${lastRange}`;
-				if(range-lastRange>100){
+				if(range-lastRange>15){
 					//这个条件成立，说明用户已经在大幅度摇晃
 					isShake=true;
 					
 				}
 				
-				if(isShake && range<50){
+				if(isShake && range<15){
 					//条件成立。说明用户摇晃的幅度很小了就停了
 					alert('摇一摇了');
 					isShake=false;
