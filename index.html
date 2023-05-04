@@ -43,10 +43,9 @@
 				if(range-lastRange>15){
 					//这个条件成立，说明用户已经在大幅度摇晃
 					isShake=true;
-					
 				}
 				
-				if(isShake && range<15){
+				if(isShake && range<14){
 					//条件成立。说明用户摇晃的幅度很小了就停了
 					alert('摇一摇了');
 					isShake=false;
