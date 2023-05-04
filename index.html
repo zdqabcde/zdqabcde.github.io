@@ -21,36 +21,15 @@
 		<div id="box"></div>
 		<script>
 			/* 
-				deviceorientation 手机倾斜事件
-					ev.beta		  x轴的倾斜
-					ev.gamma	  Y轴的倾斜
-					ev.alpha	  z轴的倾斜
-					
-				注意：这个事件只能放在window身上
+				
 			 */
 			
 			'use strict'
-			var	lastRange =0;	//上一次摇晃的幅度
-			var isShake = false;	//决定用户有没有大幅度摇晃
-			window.addEventListener('devicemotion',function(ev){
-				var motion = ev.accelerationIncludingGravity;
-				var x=Math.abs(motion.x);
-				var y=Math.abs(motion.y);
-				var z=Math.abs(motion.z);
-				
-				var range=x+y+z;	//当前摇晃的幅度
-				box.innerHTML = `range:${range}<br>lastRange:${lastRange}`;
-				if(range-lastRange>15){
-					//这个条件成立，说明用户已经在大幅度摇晃
-					isShake=true;
-				}
-				
-				if(isShake && range<14){
-					//条件成立。说明用户摇晃的幅度很小了就停了
-					alert('摇一摇了');
-					isShake=false;
-				}
-			},true);
+			var box=document.getElementById('box');
+			
+			box.addEventListener('gesturestart',function(){
+				this.style.background='blue';
+			});
 			
 		
 			
