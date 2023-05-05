@@ -7,8 +7,8 @@
 		
 		<style>
 			#box{
-				width: 200px;
-				height: 200px;
+				width: 500px;
+				height: 500px;
 				background: green;
 				color:#fff;
 				position: absolute;
@@ -84,7 +84,7 @@
 					var downD = a2d(Math.atan2(y3,x3));
 					d1 = oldD + downD -getD;
 					box.style.webkitTransform='rotate('+d1+'deg)';
-					box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>x1:${x1}<br>y1:${y1}<br>x2:${x2}<br>y2:${y2}<br>a:${a[1]}<br>b:${b[1]}<br>d:${d1}`;
+					box.innerHTML= `touches:${ev.touches.length}<br>oldD:${oldD}<br>getD:${getD}<br>downD:${downD}<br>x2:${x2}<br>y2:${y2}<br>c:${c[1]}<br>d:${d[1]}<br>d:${d1}`;
 					if(a[1]&&b[1]){
 						if(a[1]!=x2||b[1]!=y2){
 							this.style.background='black';
