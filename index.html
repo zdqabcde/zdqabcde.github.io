@@ -46,7 +46,10 @@
 				box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>x1:${x1}<br>y1:${y1}<br>x2:${x2}<br>y2:${y2}<br>a:${a}<br>b:${b}`;
 				
 				if(ev.touches.length == 2){
-					this.style.background='blue';
+					if(a[1]==undefined&&b[1]==undefined){
+						this.style.background='blue';
+					}
+					
 					}else{
 						this.style.background='green';
 					};
@@ -61,8 +64,11 @@
 					a[0] = x2;
 					b[0] = y2;
 					box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>x1:${x1}<br>y1:${y1}<br>x2:${x2}<br>y2:${y2}<br>a:${a[1]}<br>b:${b[1]}`;
-					if(a[1]!=x2||b[1]!=y2){
-						this.style.background='black';
+					if(a[1]&&b[1]){
+						if(a[1]!=x2||b[1]!=y2){
+							this.style.background='black';
+						};
+						
 						};
 					};
 					
