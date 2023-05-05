@@ -7,7 +7,7 @@
 		
 		<style>
 			#box{
-				width: 500px;
+				width: 200px;
 				height: 500px;
 				background: green;
 				color:#fff;
@@ -52,7 +52,7 @@
 					var y2=0;
 				};
 				var getD = a2d(Math.atan2(y,x));
-				box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>x1:${x1}<br>y1:${y1}<br>x2:${x2}<br>y2:${y2}<br>a:${a}<br>b:${b}`;
+				//box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>x1:${x1}<br>y1:${y1}<br>x2:${x2}<br>y2:${y2}<br>a:${a}<br>b:${b}`;
 				
 				if(ev.touches.length == 2){
 					if(a[1]==undefined&&b[1]==undefined){
