@@ -26,13 +26,14 @@
 			
 			'use strict'
 			var box=document.getElementById('box');
+			var a=[];
+			var b=[];
 			
 			box.addEventListener('touchstart',function(ev){
 				var  x1= parseFloat(ev.touches[0].clientX).toFixed(1);
 				var  y1= parseFloat(ev.touches[0].clientY).toFixed(1);
 				
-				var a=[];
-				var b=[];
+				
 				
 				if(ev.touches[1]){
 					var  x2= parseFloat(ev.touches[1].clientX).toFixed(1);
