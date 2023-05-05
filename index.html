@@ -28,11 +28,17 @@
 			var box=document.getElementById('box');
 			
 			box.addEventListener('touchstart',function(ev){
-				var  x1= parseFloat(ev.touches[0].clientX)
-				var  y1= parseFloat(ev.touches[0].clientY)
+				var  x1= parseFloat(ev.touches[0].clientX).toFixed(1);
+				var  y1= parseFloat(ev.touches[0].clientY).toFixed(1);
 				
-				var  x2= parseFloat(ev.touches[1].clientX)
-				var  y2= parseFloat(ev.touches[1].clientY)
+				if(ev.touches[1]){
+					var  x2= parseFloat(ev.touches[1].clientX).toFixed(1);
+					var  y2= parseFloat(ev.touches[1].clientY).toFixed(1);
+				}else{
+					var x2=0;
+					var y2=0;
+				};
+				
 				box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>first:${x1,y1}<br>sed:${x2,y2}`;
 				
 				if(ev.touches.length == 2){
