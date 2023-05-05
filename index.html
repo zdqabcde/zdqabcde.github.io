@@ -29,7 +29,7 @@
 			
 			box.addEventListener('touchstart',function(ev){
 				
-				box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}`;
+				box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>first:${ev.touches[0].clientX,ev.touches[0].clientY}<br>sed:${ev.touches[1].clientX,ev.touches[1].clientY}`;
 				
 				if(ev.touches.length == 2){
 					this.style.background='blue';
