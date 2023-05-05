@@ -31,6 +31,9 @@
 				var  x1= parseFloat(ev.touches[0].clientX).toFixed(1);
 				var  y1= parseFloat(ev.touches[0].clientY).toFixed(1);
 				
+				var a=[];
+				var b=[];
+				
 				if(ev.touches[1]){
 					var  x2= parseFloat(ev.touches[1].clientX).toFixed(1);
 					var  y2= parseFloat(ev.touches[1].clientY).toFixed(1);
@@ -39,7 +42,7 @@
 					var y2=0;
 				};
 				
-				box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>x1:${x1}<br>y1:${y1}<br>x2:${x2}<br>y2:${y2}`;
+				box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>x1:${x1}<br>y1:${y1}<br>x2:${x2}<br>y2:${y2}<br>a:${a}<br>b:${b}`;
 				
 				if(ev.touches.length == 2){
 					this.style.background='blue';
@@ -48,8 +51,7 @@
 					};
 					
 				if(ev.touches.length == 2){
-					var a=[];
-					var b=[];
+					
 					for(var i = ev.touches.length-1;i>0;i--){
 						a[i]=a[i-1];
 						b[i]=b[i-1];
