@@ -27,9 +27,15 @@
 			'use strict'
 			var box=document.getElementById('box');
 			
-			box.addEventListener('gesturestart',function(){
-				this.style.background='blue';
-			},false);
+			box.addEventListener('touchstart',function(ev){
+				
+				box.innerHTML= `touches:${ev.touches.length}`;
+				
+				if(ev.touches.length == 2){
+					this.style.background='blue';
+					});
+				};
+				
 			
 		
 			
