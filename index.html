@@ -28,21 +28,30 @@
 			var box=document.getElementById('box');
 			var a=[];
 			var b=[];
-			
+			var c=[];
+			var d=[];
+			var d1=0;
+			function a2d(n){
+			return n*180/Math.PI;
+			};
 			box.addEventListener('touchstart',function(ev){
-				var  x1= parseFloat(ev.touches[0].clientX).toFixed(1);
-				var  y1= parseFloat(ev.touches[0].clientY).toFixed(1);
+				var oldD=d1;
+				var  x1= parseFloat(ev.touches[0].pageX).toFixed(1);
+				var  y1= parseFloat(ev.touches[0].pageY).toFixed(1);
 				
 				
 				
 				if(ev.touches[1]){
-					var  x2= parseFloat(ev.touches[1].clientX).toFixed(1);
-					var  y2= parseFloat(ev.touches[1].clientY).toFixed(1);
+					var  x2= parseFloat(ev.touches[1].pageX).toFixed(1);
+					var  y2= parseFloat(ev.touches[1].pageY).toFixed(1);
+					
+					var x = x2-x1;
+					var y = y2-y1;
 				}else{
 					var x2=0;
 					var y2=0;
 				};
-				
+				var getD = a2d(Math.atan2(y,x));
 				box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>x1:${x1}<br>y1:${y1}<br>x2:${x2}<br>y2:${y2}<br>a:${a}<br>b:${b}`;
 				
 				if(ev.touches.length == 2){
@@ -59,11 +68,23 @@
 					for(var i = ev.touches.length-1;i>0;i--){
 						a[i]=a[i-1];
 						b[i]=b[i-1];
+						c[i]=c[i-1];
+						d[i]=d[i-1];
 					}
 					
-					a[0] = x2;
-					b[0] = y2;
-					box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>x1:${x1}<br>y1:${y1}<br>x2:${x2}<br>y2:${y2}<br>a:${a[1]}<br>b:${b[1]}`;
+					a[0] = x1;
+					b[0] = y1;
+					c[0] = x2;
+					d[0] = y2;
+					
+					
+					
+					x3=c[1]-a[1];
+					y3=d[1]-b[1];
+					var downD = a2d(Math.atan2(y3,x3));
+					d1 = oldD + downD -getD;
+					box.style.webkitTransform='rotate('+d1+'deg)';
+					box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>x1:${x1}<br>y1:${y1}<br>x2:${x2}<br>y2:${y2}<br>a:${a[1]}<br>b:${b[1]}<br>d:${d1}`;
 					if(a[1]&&b[1]){
 						if(a[1]!=x2||b[1]!=y2){
 							this.style.background='black';
