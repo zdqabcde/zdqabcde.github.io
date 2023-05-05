@@ -47,9 +47,14 @@
 						this.style.background='green';
 					};
 					
-				if(ev.changedTouches[1]){
-					this.style.background='black';
-				};
+				if(ev.touches.length == 2){
+					var a = x2;
+					var b = y2;
+					if(a!=x2||b!=y2){
+						this.style.background='black';
+						};
+					};
+					
 				});
 				
 			
