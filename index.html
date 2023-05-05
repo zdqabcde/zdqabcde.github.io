@@ -28,8 +28,12 @@
 			var box=document.getElementById('box');
 			
 			box.addEventListener('touchstart',function(ev){
+				var  x1= parseFloat(ev.touches[0].clientX)
+				var  y1= parseFloat(ev.touches[0].clientY)
 				
-				box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>first:${ev.touches[0].clientX,ev.touches[0].clientY}<br>sed:${ev.touches[1].clientX,ev.touches[1].clientY}`;
+				var  x2= parseFloat(ev.touches[1].clientX)
+				var  y2= parseFloat(ev.touches[1].clientY)
+				box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>first:${x1,y1}<br>sed:${x2,y2}`;
 				
 				if(ev.touches.length == 2){
 					this.style.background='blue';
