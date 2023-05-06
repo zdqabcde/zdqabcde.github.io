@@ -59,7 +59,7 @@
 					var downS = getS(ev);
 				}
 				
-				document.addEventListener('touchmove',function(ev){
+				box.addEventListener('touchmove',function(ev){
 					ev.preventDefault();
 					if(ev.touches.length==2){
 						c=getS(ev)/downS+olds;
