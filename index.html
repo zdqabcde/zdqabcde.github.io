@@ -30,16 +30,16 @@
 			var b=[];
 			var c=[];
 			var d=[];
-			var d1=0;
-			function a2d(n){
+			var c=1;
+			/* function a2s(n){
 			return n*180/Math.PI;
-			};
+			}; */
 			box.addEventListener('touchstart',function(ev){
 				ev.preventDefault();	//阻止浏览器的默认行为
-				var oldD=d1;
+				var olds=c;
 				
 				
-				function getD(ev){
+				function getS(ev){
 					var  x1= parseFloat(ev.touches[0].pageX).toFixed(1);
 					var  y1= parseFloat(ev.touches[0].pageY).toFixed(1);
 					
@@ -49,22 +49,22 @@
 					var x = x2-x1;
 					var y = y2-y1;
 					
-					var d1=a2d(Math.atan2(y,x));
+					var c=Math.sqrt(x*x + y*y);
 					
-					return d1;
+					return c;
 					
 				};
 				
 				if(ev.touches.length == 2){
-					var downD = getD(ev);
+					var downS = getS(ev);
 				}
 				
 				document.addEventListener('touchmove',function(ev){
 					ev.preventDefault();
 					if(ev.touches.length==2){
-						d1=oldD+downD-getD(ev);
+						c=getS(ev)/downS+olds;
 						
-						box.style.webkitTransform='rotate('+d1+'deg)';
+						box.style.webkitTransform='scale('+c+')';
 					}
 				});
 				
