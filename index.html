@@ -36,12 +36,39 @@
 			};
 			box.addEventListener('touchstart',function(ev){
 				var oldD=d1;
-				var  x1= parseFloat(ev.touches[0].pageX).toFixed(1);
-				var  y1= parseFloat(ev.touches[0].pageY).toFixed(1);
 				
 				
+				function getD(ev){
+					var  x1= parseFloat(ev.touches[0].pageX).toFixed(1);
+					var  y1= parseFloat(ev.touches[0].pageY).toFixed(1);
+					
+					var  x2= parseFloat(ev.touches[1].pageX).toFixed(1);
+					var  y2= parseFloat(ev.touches[1].pageY).toFixed(1);
+					
+					var x = x2-x1;
+					var y = y2-y1;
+					
+					var d1=a2d(Math.atan2(y,x));
+					
+					return d1;
+					
+				};
 				
-				if(ev.touches[1]){
+				if(ev.touches.length == 2){
+					var downD = getD(ev);
+				}
+				
+				document.addEventListener('touchmove',function(ev){
+					if(ev.touches.length==2){
+						d1=oldD+downD-getD(ev);
+						
+						box.style.webkitTransform='rotate('+d+'deg)';
+					}
+				});
+				
+				box.innerHTML= `touches:${ev.touches.length}<br>odlD:${oldD}<br>downD:${downD}<br>d1:${d1}`;
+				
+				/* if(ev.touches[1]){
 					var  x2= parseFloat(ev.touches[1].pageX).toFixed(1);
 					var  y2= parseFloat(ev.touches[1].pageY).toFixed(1);
 					
@@ -92,7 +119,7 @@
 						
 						};
 					};
-				box.innerHTML= `touches:${ev.touches.length}<br>oldD:${oldD}<br>getD:${getD}<br>downD:${downD}<br>x2:${x2}<br>y2:${y2}<br>c:${c[1]}<br>d:${d[1]}<br>d:${d1}`;
+				box.innerHTML= `touches:${ev.touches.length}<br>oldD:${oldD}<br>getD:${getD}<br>downD:${downD}<br>x2:${x2}<br>y2:${y2}<br>c:${c[1]}<br>d:${d[1]}<br>d:${d1}`; */
 					
 				});
 				
