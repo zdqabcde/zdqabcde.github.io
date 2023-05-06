@@ -35,6 +35,7 @@
 			return n*180/Math.PI;
 			};
 			box.addEventListener('touchstart',function(ev){
+				ev.preventDefault();	//阻止浏览器的默认行为
 				var oldD=d1;
 				
 				
@@ -59,12 +60,14 @@
 				}
 				
 				document.addEventListener('touchmove',function(ev){
+					ev.preventDefault();
 					if(ev.touches.length==2){
 						d1=oldD+downD-getD(ev);
 						
 						box.style.webkitTransform='rotate('+d1+'deg)';
 					}
 				});
+				
 				
 				box.innerHTML= `touches:${ev.touches.length}<br>odlD:${oldD}<br>downD:${downD}<br>d1:${d1}`;
 				
