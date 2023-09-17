@@ -2,133 +2,1173 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name='viewport' content="width=device-width,user-scalable=no">
-		<title></title>
 		
-		<style>
-			#box{
-				width: 200px;
-				height: 300px;
-				background: green;
-				color:#fff;
-				position: absolute;
-				left:50px;
-			}
-			
-		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>体检报告</title>
+		<!-- Bootstrap 的 CSS 文件 -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/1.css">
+		<link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4206672_uloj7digwgp.css">
 	</head>
 	<body>
-		<div id="box"></div>
-		<script>
-			/* 
-				
-			 */
-			
-			'use strict'
-			var box=document.getElementById('box');
-			var a=[];
-			var b=[];
-			var c=[];
-			var d=[];
-			var c=0;
-			/* function a2s(n){
-			return n*180/Math.PI;
-			}; */
-			box.addEventListener('touchstart',function(ev){
-				ev.preventDefault();	//阻止浏览器的默认行为
-				var olds=c;
-				
-				
-				function getS(ev){
-					var  x1= parseFloat(ev.touches[0].pageX).toFixed(1);
-					var  y1= parseFloat(ev.touches[0].pageY).toFixed(1);
-					
-					var  x2= parseFloat(ev.touches[1].pageX).toFixed(1);
-					var  y2= parseFloat(ev.touches[1].pageY).toFixed(1);
-					
-					var x = x2-x1;
-					var y = y2-y1;
-					
-					var c=Math.sqrt(x*x + y*y);
-					
-					return c;
-					
-				};
-				
-				if(ev.touches.length == 2){
-					var downS = getS(ev);
-				}
-				
-				box.addEventListener('touchmove',function(ev){
-					ev.preventDefault();
-					if(ev.touches.length==2){
-						c=getS(ev)/downS+olds;
-						
-						box.style.webkitTransform='scale('+c+')';
-					}
-				});
-				
-				
-				box.innerHTML= `touches:${ev.touches.length}<br>odls:${olds}<br>downS:${downS}<br>c:${c}`;
-				
-				/* if(ev.touches[1]){
-					var  x2= parseFloat(ev.touches[1].pageX).toFixed(1);
-					var  y2= parseFloat(ev.touches[1].pageY).toFixed(1);
-					
-					var x = x2-x1;
-					var y = y2-y1;
-				}else{
-					var x2=0;
-					var y2=0;
-				};
-				var getD = a2d(Math.atan2(y,x));
-				//box.innerHTML= `touches:${ev.touches.length}<br>changedTouches:${ev.changedTouches.length}<br>x1:${x1}<br>y1:${y1}<br>x2:${x2}<br>y2:${y2}<br>a:${a}<br>b:${b}`;
-				
-				if(ev.touches.length == 2){
-					if(a[1]==undefined&&b[1]==undefined){
-						this.style.background='blue';
-					}
-					
-					}else{
-						this.style.background='green';
-					};
-					
-				if(ev.touches.length == 2){
-					
-					for(var i = ev.touches.length-1;i>0;i--){
-						a[i]=a[i-1];
-						b[i]=b[i-1];
-						c[i]=c[i-1];
-						d[i]=d[i-1];
-					}
-					
-					a[0] = x1;
-					b[0] = y1;
-					c[0] = x2;
-					d[0] = y2;
-					
-					
-					
-					x3=c[1]-a[1];
-					y3=d[1]-b[1];
-					var downD = a2d(Math.atan2(y3,x3));
-					d1 = oldD + downD -getD;
-					box.style.webkitTransform='rotate('+d1+'deg)';
-					
-					if(a[1]&&b[1]){
-						if(a[1]!=x2||b[1]!=y2){
-							this.style.background='black';
-						};
-						
-						};
-					};
-				box.innerHTML= `touches:${ev.touches.length}<br>oldD:${oldD}<br>getD:${getD}<br>downD:${downD}<br>x2:${x2}<br>y2:${y2}<br>c:${c[1]}<br>d:${d[1]}<br>d:${d1}`; */
-					
-				});
-				
-			
+		<div class="container">
+			<div class="titles">体检报告</div>
+			<div class="lists">
+				<ul class="options">
+					<li class="items">
+						<div class="title">
+							<span>项目编号</span>
+							<span>检查项目名称</span>
+							<span>是否检查</span>
+							<span>检查日期</span>
+						</div>
+					</li>
+					<li class="items expand">
+						<div class="item">
+							<span>1</span>
+							<span class="select">身高体重腰围<i class="iconfont icon-jiantouxia"></i></span>
+							<span>已检</span>
+							<span>2023-08-16</span>
+						</div>
+						<ul class="submenu">
+							<li class="title1">
+								<div>
+									<span>序号</span>
+									<span>项目编号</span>
+									<span>项目名称</span>
+									<span>检查结果</span>
+									<span>单位</span>
+									<span>参考值</span>
+									<span>异常提示</span>
+									<span>是否复盘</span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>1</span>
+									<span>1010</span>
+									<span>呼吸频率</span>
+									<span>19</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>2</span>
+									<span>1001</span>
+									<span>身高</span>
+									<span>164.50</span>
+									<span>cm</span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>3</span>
+									<span>1002</span>
+									<span>体重</span>
+									<span>61.79</span>
+									<span>kg</span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>4</span>
+									<span>1003</span>
+									<span>体质指数</span>
+									<span>22.83</span>
+									<span>kg/m^2</span>
+									<span>18.500~23.999</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>5</span>
+									<span>1004</span>
+									<span>腰围</span>
+									<span>84</span>
+									<span>cm</span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>6</span>
+									<span>1005</span>
+									<span>体温</span>
+									<span>36.6</span>
+									<span>°C</span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>7</span>
+									<span>1006</span>
+									<span>左眼视力</span>
+									<span>4.7</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>8</span>
+									<span>1007</span>
+									<span>右眼视力</span>
+									<span>4.7</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>9</span>
+									<span>1008</span>
+									<span>左眼视力（矫正后）</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>10</span>
+									<span>1009</span>
+									<span>右眼视力（矫正后）</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li>小结：身高体重腰围：未见异常！</li>
+						</ul>
+					</li>
+					<li class="items">
+						<div class="item">
+							<span>2</span>
+							<span class="select">血压<i class="iconfont icon-jiantouxia"></i></span>
+							<span>已检</span>
+							<span>2023-08-16</span>
+						</div>
+						<ul class="submenu">
+							<li class="title1">
+								<div>
+									<span>序号</span>
+									<span>项目编号</span>
+									<span>项目名称</span>
+									<span>检查结果</span>
+									<span>单位</span>
+									<span>参考值</span>
+									<span>异常提示</span>
+									<span>是否复盘</span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>1</span>
+									<span>2005</span>
+									<span>右手收缩压</span>
+									<span>135</span>
+									<span>mmHg</span>
+									<span>90.000~139.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>2</span>
+									<span>2004</span>
+									<span>右手舒张压</span>
+									<span>51</span>
+									<span>mmHg</span>
+									<span>60.000~89.000</span>
+									<span><i class="iconfont icon-jiantou_xiangxia"></i></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>3</span>
+									<span>2006</span>
+									<span>右手脉率</span>
+									<span>85</span>
+									<span>次/分钟</span>
+									<span>60.000~100.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>4</span>
+									<span>2002</span>
+									<span>左手收缩压</span>
+									<span></span>
+									<span>mmHg</span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>5</span>
+									<span>2001</span>
+									<span>左手舒张压</span>
+									<span></span>
+									<span>mmHg</span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>6</span>
+									<span>2003</span>
+									<span>左手脉率</span>
+									<span></span>
+									<span>次/分钟</span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li>小结：血压右手舒张压51.000mmHg<i class="iconfont icon-jiantou_xiangxia"></i></li>
+						</ul>
+					</li>
+					<li class="items">
+						<div class="item">
+							<span>3</span>
+							<span class="select">血常规<i class="iconfont icon-jiantouxia"></i></span>
+							<span>已检</span>
+							<span>2023-08-16</span>
+						</div>
+						<ul class="submenu">
+							<li class="title1">
+								<div>
+									<span>序号</span>
+									<span>项目编号</span>
+									<span>项目名称</span>
+									<span>检查结果</span>
+									<span>单位</span>
+									<span>参考值</span>
+									<span>异常提示</span>
+									<span>是否复盘</span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>1</span>
+									<span>3001</span>
+									<span>白细胞数目</span>
+									<span>5.48</span>
+									<span>x10^9/L</span>
+									<span>4.000~10.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>2</span>
+									<span>3002</span>
+									<span>红细胞数目</span>
+									<span>3.62</span>
+									<span>x10^12/L</span>
+									<span>3.500~5.500</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>3</span>
+									<span>3004</span>
+									<span>血红蛋白浓度</span>
+									<span>126.00</span>
+									<span>g/L</span>
+									<span>110.000~160.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>4</span>
+									<span>3005</span>
+									<span>红细胞压积</span>
+									<span>38.00</span>
+									<span>%</span>
+									<span>37.000~54.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>5</span>
+									<span>3006</span>
+									<span>红细胞平均体积</span>
+									<span>104.70</span>
+									<span>fL</span>
+									<span>80.000~100.000</span>
+									<span><i class="iconfont icon-jiantou_xiangshang"></i></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>6</span>
+									<span>3007</span>
+									<span style="font-size: 13px;">平均红细胞血红蛋白含量</span>
+									<span>34.79</span>
+									<span>pg</span>
+									<span>27.000~34.000</span>
+									<span><i class="iconfont icon-jiantou_xiangshang"></i></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>7</span>
+									<span>3008</span>
+									<span style="font-size: 13px;">平均红细胞血红蛋白浓度</span>
+									<span>332.00</span>
+									<span>g/L</span>
+									<span>320.000~360.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>8</span>
+									<span>3010</span>
+									<span style="font-size: 13px;">红细胞分布宽度变异系数</span>
+									<span>13.30</span>
+									<span>%</span>
+									<span>11.000~16.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>9</span>
+									<span>3009</span>
+									<span>红细胞分布宽度标准差</span>
+									<span>51.00</span>
+									<span>fL</span>
+									<span>35.000~56.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>10</span>
+									<span>3003</span>
+									<span>血小板数目</span>
+									<span>198.00</span>
+									<span>x10^9/L</span>
+									<span>100.000~300.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>11</span>
+									<span>3011</span>
+									<span>平均血小板体积</span>
+									<span>8.30</span>
+									<span>fL</span>
+									<span>6.500~12.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>12</span>
+									<span>3012</span>
+									<span>血小板分布宽度</span>
+									<span>15.90</span>
+									<span>fL</span>
+									<span>15.000~17.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>13</span>
+									<span>3013</span>
+									<span>血小板压积</span>
+									<span>0.16</span>
+									<span>%</span>
+									<span>0.108~0282</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>14</span>
+									<span>3014</span>
+									<span>大血小板比率</span>
+									<span>14.80</span>
+									<span>%</span>
+									<span>11.000~45.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>15</span>
+									<span>3028</span>
+									<span>大血小板数目</span>
+									<span>29.00</span>
+									<span>10^9/L</span>
+									<span>30.000~90.000</span>
+									<span><i class="iconfont icon-jiantou_xiangxia"></i></span>
+									<span></span>
+								</div>
+							</li>
+							<li>小结：血常规：红细胞平均体积104.700fL<i class="iconfont icon-jiantou_xiangshang"></i>，
+							    平均红细胞蛋白含量34.790pg<i class="iconfont icon-jiantou_xiangshang"></i>，
+								大血小板数目29.00010^9/L<i class="iconfont icon-jiantou_xiangxia"></i>
+							</li>
+						</ul>
+					</li>
+					<li class="items">
+						<div class="item">
+							<span>4</span>
+							<span class="select">尿常规<i class="iconfont icon-jiantouxia"></i></span>
+							<span>已检</span>
+							<span>2023-08-16</span>
+						</div>
+						<ul class="submenu">
+							<li class="title1">
+								<div>
+									<span>序号</span>
+									<span>项目编号</span>
+									<span>项目名称</span>
+									<span>检查结果</span>
+									<span>单位</span>
+									<span>参考值</span>
+									<span>异常提示</span>
+									<span>是否复盘</span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>1</span>
+									<span>4001</span>
+									<span>尿白细胞</span>
+									<span>-</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>2</span>
+									<span>4002</span>
+									<span>尿亚硝酸盐</span>
+									<span>-</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>3</span>
+									<span>4003</span>
+									<span>尿胆原</span>
+									<span>Normal</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>4</span>
+									<span>4004</span>
+									<span>尿蛋白质</span>
+									<span>-</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>5</span>
+									<span>4005</span>
+									<span>尿PH值</span>
+									<span>5.500</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>6</span>
+									<span>4006</span>
+									<span>尿隐血</span>
+									<span>-</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>7</span>
+									<span>4007</span>
+									<span>尿比重</span>
+									<span>1.020</span>
+									<span></span>
+									<span>1.01~1.03</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>8</span>
+									<span>4008</span>
+									<span>尿酮体</span>
+									<span>-</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>9</span>
+									<span>4009</span>
+									<span>尿胆红素</span>
+									<span>-</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>10</span>
+									<span>4010</span>
+									<span>葡萄糖</span>
+									<span>-</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>11</span>
+									<span>4011</span>
+									<span>Vc</span>
+									<span>-</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li>小结：尿常规：未见异常！</li>
+						</ul>
+					</li>
+					<li class="items">
+						<div class="item">
+							<span>5</span>
+							<span class="select">彩超<i class="iconfont icon-jiantouxia"></i></span>
+							<span>已检</span>
+							<span>2023-08-16</span>
+						</div>
+						<ul class="submenu">
+							<li>
+								<p>检查所见：</p>
+								<p>肝脏大小、形态正常、轮廓清晰。被膜欠光滑，实质回声稍增强，光点增粗，分步不均匀，内见数个8×7mm无回声，壁薄内清，后壁效应增强；肝内血管走行正常，门静脉不扩张。</p>
+								<p>胆囊大小约52×25mm，壁薄，光滑，囊内暗区清，内见一范围20×9mm强光团伴声影堆积，可移动；肝内外胆管不扩张。</p>
+								<p>胰头厚15mm，体厚10mm，尾厚11mm，形态规则，实质回声均匀，胰管不扩张。</p>
+								<p>脾厚28mm，包膜完整，实质光点细小，分布均匀，脾静脉不扩张。</p>
+								<p>双肾大小、形态正常，被膜光滑，实质呈低回声，集合系统无分离。</p>
+								<p>前列腺大小约为28×53×29mm，形态规则，包膜完整，实质呈低回声，分布欠均匀。</p>
+								<p></p>
+								<p>超声提示：</p>
+								<p>1、肝实质改变：肝囊肿；</p>
+								<p>2、胆囊结石；</p>
+								<p>3、前列腺增生；</p>
+								<p>4、胰脾双肾未见明显异常声像。</p>
+							</li>
+						</ul>
+					</li>
+					<li class="items">
+						<div class="item">
+							<span>6</span>
+							<span class="select">心电图<i class="iconfont icon-jiantouxia"></i></span>
+							<span>已检</span>
+							<span>2023-08-16</span>
+						</div>
+						<ul class="submenu">
+							<li class='heart'>
+								<div class="heart-left">
+									<span>ID号</span>
+									<span></span>
+									<span>心率：</span>
+									<span>70pbm （60-100）</span>
+									<span>P-R间期：</span>
+									<span>184ms （120-220）</span>
+									<span>姓名：</span>
+									<span>张万鑑</span>
+									<span>SV1：</span>
+									<span>-0.21mv（0-2.1）</span>
+									<span>QRS时限：</span>
+									<span>142ms<i class="iconfont icon-jiantou_xiangshang"></i>（0-110）</span>
+									<span>性别：</span>
+									<span>男</span>
+									<span>RV5：</span>
+									<span>1.09mV（0-2.5）</span>
+									<span>QT/QTc：</span>
+									<span>416/499ms（340-450）</span>
+									<span>年龄</span>
+									<span>74岁</span>
+									<span>RV5+SV1：</span>
+									<span>1.3mV（0-4）</span>
+									<span>电轴：</span>
+									<span>-61°<i class="iconfont icon-jiantou_xiangxia"></i>（-30-90）</span>
+								</div>
+								<div class="heart-right">
+									<p>诊断：</p>
+									<p>1.窦性心律</p>
+									<p>2.完全性右束支传导阻滞</p>
+									<p>3.心电轴左偏</p>
+								</div>
+							</li>
+							<li><img src="./img/0916.jpg" alt=""></li>
+						</ul>
+					</li>
+					<li class="items">
+						<div class="item">
+							<span>7</span>
+							<span class="select">肝功能<i class="iconfont icon-jiantouxia"></i></span>
+							<span>已检</span>
+							<span>2023-08-16</span>
+						</div>
+						<ul class="submenu">
+							<li class="title1">
+								<div>
+									<span>序号</span>
+									<span>项目编号</span>
+									<span>项目名称</span>
+									<span>检查结果</span>
+									<span>单位</span>
+									<span>参考值</span>
+									<span>异常提示</span>
+									<span>是否复盘</span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>1</span>
+									<span>7001</span>
+									<span>丙氨酸氨基转移酶</span>
+									<span>15.00</span>
+									<span>U/L</span>
+									<span>0.000~40.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>2</span>
+									<span>7002</span>
+									<span>天冬氨酸氨基转移酶</span>
+									<span>19.00</span>
+									<span>U/L</span>
+									<span>0.000~40.000</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>3</span>
+									<span>7003</span>
+									<span>总胆红素</span>
+									<span>16.14</span>
+									<span>μ mol/L</span>
+									<span>3.420~20.500</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li>小结：肝功能，未见异常！</li>
+						</ul>
+					</li>
+					<li class="items">
+						<div class="item">
+							<span>8</span>
+							<span class="select">肾功能<i class="iconfont icon-jiantouxia"></i></span>
+							<span>已检</span>
+							<span>2023-08-16</span>
+						</div>
+						<ul class="submenu">
+							<li class="title1">
+								<div>
+									<span>序号</span>
+									<span>项目编号</span>
+									<span>项目名称</span>
+									<span>检查结果</span>
+									<span>单位</span>
+									<span>参考值</span>
+									<span>异常提示</span>
+									<span>是否复盘</span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>1</span>
+									<span>7012</span>
+									<span>尿酸</span>
+									<span>427.00</span>
+									<span>μ mol/L</span>
+									<span>200~420</span>
+									<span><i class="iconfont icon-jiantou_xiangshang"></i></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>2</span>
+									<span>7008</span>
+									<span>尿素</span>
+									<span>5.22</span>
+									<span>mmol/L</span>
+									<span>1.43~7.14</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>3</span>
+									<span>7009</span>
+									<span>肌酐</span>
+									<span>67.00</span>
+									<span>μ mol/L</span>
+									<span>44~97</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li>小结：肾功能：尿酸427.00μ mol/L<i class="iconfont icon-jiantou_xiangshang"></i></li>
+						</ul>
+					</li>
+					<li class="items">
+						<div class="item">
+							<span>9</span>
+							<span class="select">血糖<i class="iconfont icon-jiantouxia"></i></span>
+							<span>已检</span>
+							<span>2023-08-16</span>
+						</div>
+						<ul class="submenu">
+							<li class="title1">
+								<div>
+									<span>序号</span>
+									<span>项目编号</span>
+									<span>项目名称</span>
+									<span>检查结果</span>
+									<span>单位</span>
+									<span>参考值</span>
+									<span>异常提示</span>
+									<span>是否复盘</span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>1</span>
+									<span>7010</span>
+									<span>餐前葡萄糖</span>
+									<span>5.53</span>
+									<span>mmol/L</span>
+									<span>3.89-6.11</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li>小结：血糖：未见异常！</li>
+						</ul>
+					</li>
+					<li class="items">
+						<div class="item">
+							<span>10</span>
+							<span class="select">血脂<i class="iconfont icon-jiantouxia"></i></span>
+							<span>已检</span>
+							<span>2023-08-16</span>
+						</div>
+						<ul class="submenu">
+							<li class="title1">
+								<div>
+									<span>序号</span>
+									<span>项目编号</span>
+									<span>项目名称</span>
+									<span>检查结果</span>
+									<span>单位</span>
+									<span>参考值</span>
+									<span>异常提示</span>
+									<span>是否复盘</span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>1</span>
+									<span>7004</span>
+									<span>总胆固醇</span>
+									<span>4.63</span>
+									<span>mmol/L</span>
+									<span>0.00~5.17</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>2</span>
+									<span>7005</span>
+									<span>高密度脂蛋白胆固醇</span>
+									<span>1.47</span>
+									<span>mmol/L</span>
+									<span>1.05~1.66</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>3</span>
+									<span>7006</span>
+									<span>低密度脂蛋白胆固醇</span>
+									<span>2.41</span>
+									<span>mmol/L</span>
+									<span>0.00~3.10</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>4</span>
+									<span>7007</span>
+									<span>甘油三脂</span>
+									<span>0.66</span>
+									<span>mmol/L</span>
+									<span>0.00~2.30</span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li>小结：血脂：未见异常！</li>
+						</ul>
+					</li>
+					<li class="items">
+						<div class="item">
+							<span>11</span>
+							<span class="select">内科<i class="iconfont icon-jiantouxia"></i></span>
+							<span>已检</span>
+							<span>2023-08-16</span>
+						</div>
+						<ul class="submenu">
+							<li class="title1">
+								<div>
+									<span>序号</span>
+									<span>项目编号</span>
+									<span>项目名称</span>
+									<span>检查结果</span>
+									<span>单位</span>
+									<span>参考值</span>
+									<span>异常提示</span>
+									<span>是否复盘</span>
+								</div>
+							</li>
+							<li class="item1">
+								<div>
+									<span>1</span>
+									<span>11001</span>
+									<span>内科</span>
+									<span>未见异常</span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</li>
+							<li>小结：内科：未见异常！</li>
+						</ul>
+					</li>
+					<li class="items">
+						<div class="item">
+							<span>71</span>
+							<span class="select">眼底<i class="iconfont icon-jiantouxia"></i></span>
+							<span>已检</span>
+							<span>2023-08-16</span>
+						</div>
+						<ul class="submenu">
+							<li class="eyes1">
+								<div class="title2">
+									<span>内容</span>
+									<span>右眼</span>
+									<span>左眼</span>
+									<span>参考值</span>
+								</div>
+							</li>
+							<li class="eyes2">黄斑区病灶分布</li>
+							<li class="eyes3">
+								<div class="item2">
+									<span>内容</span>
+									<span>R600μm</span>
+									<span>R1800μm</span>
+									<span>R3600μm</span>
+									<span>其他</span>
+									<span>R600μm</span>
+									<span>R1800μm</span>
+									<span>R3600μm</span>
+									<span>其他</span>
+									<span>0</span>
+									<span>微血管瘤</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>出血点</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>硬性渗出</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>软性渗出</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>玻璃膜疣</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+								</div>
+							</li>
+							<li class="eyes2">视神经分析</li>
+							<li class="eyes4">
+								<div class="item3">
+									<span>视盘直径(μm)</span>
+									<span>水平：1558.9</span>
+									<span>垂直：1553.7</span>
+									<span>水平：1471.7</span>
+									<span>垂直：1548.6</span>
+									<span>-</span>
+									<span>视杯直径(μm)</span>
+									<span>水平：676.89</span>
+									<span>垂直：635.87</span>
+									<span>水平：379.47</span>
+									<span>垂直：410.24</span>
+									<span>-</span>
+									<span>杯盘比值</span>
+									<span>水平：0.4342</span>
+									<span>垂直：0.4092</span>
+									<span>水平：0.2578</span>
+									<span>垂直：0.2649</span>
+									<span>0.1-0.58</span>
+								</div>
+							</li>
+							<li class="eyes5">
+								<div class="item4">
+									<span>视盘旋转角(°)</span>
+									<span>-22.86</span>
+									<span>89.856</span>
+									<span>-90°，90°</span>
+									<span>视盘圆角</span>
+									<span>0.9358</span>
+									<span>0.8993</span>
+									<span>0-1</span>
+								</div>
+							</li>
+							<li class="eyes2">眼底血管分析</li>
+							<li class="eyes5">
+								<div class="item4">
+									<span>动静脉比值</span>
+									<span>0.7450</span>
+									<span>0.8385</span>
+									<span>0.67-1</span>
+									<span style="font-size: 14px;">血管平均弯曲度</span>
+									<span>0.0005</span>
+									<span>0.0007</span>
+									<span>0-0.0012</span>
+									<span style="font-size: 14px;">血管平均管径(μm)</span>
+									<span>73.722</span>
+									<span>62.888</span>
+									<span>45-75</span>
+									<span>血管密度</span>
+									<span>0.0467</span>
+									<span>0.0531</span>
+									<span>-</span>
+									<span style="font-size: 12px;">动静脉交叉压迫点</span>
+									<span>0</span>
+									<span>0</span>
+									<span>0</span>
+								</div>
+							</li>
+							<li class="eyes2">总体分析结果</li>
+							<li class="eyes6">
+								<div class="item5">右眼</div>
+								<p>疑似视盘周围小面积视网膜萎缩弧，常见于近视人群和老年人，眼底正常近视性或年龄性改变。建议一年后复查眼底，合理用眼，适度运动。</p>
+								<div class="item6">左眼</div>
+								<p>未见明显异常</p>
+							</li>
+							<li class="eyes2">影像综合建议</li>
+							<li class="eyes6">
+								<p> 建议一年后复查眼底，合理用眼，适度运动</p>
+							</li>
+						</ul>
+					</li>
+					<li class="items items1">
+						<h2 class="select">总结</h2>
+						<ul class="submenu">
+							<li class="eyes2">综述</li>
+							<li class="eyes6">
+								<p> 【血压项目】：右手舒张压[遍低]</p>
+								<p>【血常规项目】：红细胞平均体积[偏高]平均红细胞血红蛋白含量[偏高]大血小板数目[偏低]</p>
+								<p>【彩超项目】：B超[1、肝实质改变：肝囊肿;2、胆囊结石;3、前列腺增生；4、胰脾双肾未见明显异常声像。]</p>
+								<p>【心电图项目】：心电图[1.窦性心律；2.完全性右束支传导阻滞;3.心电轴左遍]</p>
+								<p>【肾功能项目】：尿酸[偏高]</p>
+							</li>
+							<li class="eyes2">医生建议</li>
+							<li class="eyes6">
+								<p> 【血压项目】：<span style="font-weight: bold;">右手舒张压：</span>饮食疗法是治疗低血压的有力措施之一，可逐渐改善身体素质和心血管功能，消除低血压带来的种种不适症状。必要时正规医院专科治疗。</p>
+								<p>【血常规项目】：<span style="font-weight: bold;">红细胞平均体积：</span>多喝水，多吃新鲜的蔬菜和水果。多运动，减轻体重。
+												<br><span style="font-weight: bold;">平均红细胞血红蛋白含量：MCH</span>偏高可能是红细胞平均血红蛋白偏高。这种情况说明红细胞含有的血红蛋白升高，可能是营养不良性或者是巨幼细胞遗传性贫血贫血所致，
+												一般这种情况其他血红蛋白是降低的，可以查叶酸，维生素B12检查，治疗可以补充叶酸，维生素B12检查，若单纯的MCH偏高，其他无异常，一般没有意义，定期复查血常规。</p>
+								<p>【彩超项目】：<span style="font-weight: bold;">B超：</span>(1)多因胆汁滞留或钙盐、胆固醇、胆色素代谢障碍及胆壁感染所致。
+												<br>(2)要规律饮食，限制油腻食物摄入。
+												<br>(3)无症状时可每年复查一次超声检查；有轻度症状时，可口服消炎利胆药和抗菌药治疗。
+												<br>(4)症状明显，影响工作和休息，请到医院肝胆外科诊治。
+												<br>
+												<br>(1)肝囊肿小于50mm不需要治疗，建议每年复查一次B超。
+												<br>(2)肝囊肿如果大于50mm请到医院肝胆外科诊治。
+												<br>
+												<br>(1)又称前列腺肥大，多见中老年男性，年龄的增长是前列腺增生发病的一个重要原因，与高脂饮食、饮酒、吸烟及久坐少运动等因素有关。
+												<br>(2)建议：1.尽量避免长时间憋尿。2.减少久坐时间。3.保持大便通畅。4.限酒，预防前列腺增生症状的加重。5.若出现排尿费力、不畅等症状，应及时医院治疗，预防尿潴留、膀胱结石等并发症的发生。</p>
+								<p>【心电图项目】：<span style="font-weight: bold;">心电图：</span>可见于正常人或心肌损害，请结合临床，必要时专科就诊，
+												<br>(1)可见于正常人、肥胖、妊娠、腹水等，心脏趋向横位但心脏本身正常，也见于高血压心脏病等病理情况。
+												<br>(2)单独出现临床意义不大，一般不需要处理。
+												<br>(3)若有胸闷、心慌等不适，建议到心血管内科就诊。</p>
+								<p>【肾功能项目】：<span style="font-weight: bold;">尿酸：</span>不能吃高嘌呤食物，如内脏、虾蟹、浓肉汤、食用菌类、海藻类、凤尾鱼、沙丁鱼、蛤类、豆类及啤酒等高嘌呤类食物。</p>
+							</li>
+							<li class="eyes2">健康宣教</li>
+							<li class="eyes6">
+								<p> 【肾功能项目】：<span style="font-weight: bold;">尿酸：</span>尿酸高饮食禁忌：
+												 <br>①少吃高嘌呤食物。痛风的人谨记。
+												 <br>②少吃高果糖食物。因为血液中的果糖含量上升，会导致尿酸含量迅速增加。
+												 <br>③少吃调味料。蚝油、鲍鱼汁、海鲜酱、浓缩鸡汁等食品调味料的嘌呤含量也很高。
+												 <br>④别喝啤酒。啤酒中有嘌呤。酒精可增进尿酸排泄，增加痛风或高尿酸风险。
+												 <br>
+												 <br>长期尿酸过高，会引起高尿酸血症，或者诱发痛风。长期痛风可导致关节残疾、损伤肾脏、尿毒症、心肌梗塞、引发心血管疾病等，因此降低尿酸才是关键，尿酸很高应吃降酸药，
+												 不是很高可喝“千金方”的加减方菊苣淡竹茶，茶中含有多种中草药，可利尿消肿、利于血尿酸等功效帮助尿酸从肾脏排出。淡竹叶治痛风作用：正常人试以该品10g煎服，利尿作用弱，
+												 但能增加尿中氯化物的排泄量。其利尿作用较木通、猪苓为弱，但其增加尿中氯化物量的排泄则比猪苓强。促进尿酸盐从尿液中排出。</p>
+								<p>【血常规项目】：<span style="font-weight: bold;">红细胞平均体积：</span>红细胞体积是根据红细胞，血红蛋白，红细胞压积计算出来的，对诊断贫血类型有意义。
+												<br>如血常规检查，红细胞，血红蛋白都正常，没有贫血现象，之平均红细胞轻微偏高，没有意义，无需治疗。
+												<br><span style="font-weight: bold;">平均红细胞血红蛋白含量：</span>1.Hb偏高 2.RBC偏低
+												<br>1.如果您是男性，Hb偏是正常现象；
+												<br>2.如果您RBC偏低，有可能是贫血的表现；
+												<br>3.如果您血常规中只有MCH一项偏高，您不必担心，因为血常规结果没有100%在参考范围内的。
+												<br>建议您找到所查血常规的医院向医生详细了解情况，因为医生会将你的所有检查项目与您自身情况综合得出结论。因为任何一个人对您血常规的检查结果给出的评价都是片面的，并且不能说明您自身情况。</p>
+								<p>【血压项目】：<span style="font-weight: bold;">右手舒张压：</span>正常状态下（或空腹时）成人血压低于90/60mmHg,即为低血压。
+												<br>此时应避免体位改变过猛，切忌突然起立，以免心脏、大脑因短暂性供血不足而昏倒。当去诱发因素后即可好转。建议您定期复查。</p>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
 		
-			
-		</script>
+		<script src="js/1.js"></script>
+		<script src="js/jquery.slim.min.js" ></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/less.min.js"></script>
 	</body>
 </html>
